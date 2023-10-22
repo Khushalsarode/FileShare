@@ -7,7 +7,6 @@ from io import BytesIO
 import time
 import os
 import base64
-import base64
 import requests
 from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
