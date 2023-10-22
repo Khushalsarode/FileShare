@@ -43,8 +43,17 @@ def download_file(unique_code):
 
 
 # Initialize MongoDB client
-client = pymongo.MongoClient("mongodb://localhost:27017/")
-db = client["file_sharing_db"]
+#client = pymongo.MongoClient("mongodb://localhost:27017/")
+#db = client["file_sharing_db"]
+#collection = db["uploaded_files"]
+
+# Replace with your MongoDB Atlas connection string
+connection_string = "mongodb+srv://filesharedemo:1mf8WgtSUavNuqaz@filedump.9zvaglc.mongodb.net/?retryWrites=true&w=majority"
+# Create a MongoDB client using the connection string
+client = pymongo.MongoClient(connection_string)
+
+# Access your specific MongoDB database
+db = client["filedump"]  # Replace "your-database-name" with your actual database name
 collection = db["uploaded_files"]
 
 # Mailgun API configuration
