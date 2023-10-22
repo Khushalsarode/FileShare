@@ -3,3 +3,4 @@ pymongo
 bson
 requests
 apscheduler
+python-decouple

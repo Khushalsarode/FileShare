@@ -12,6 +12,7 @@ from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
 from tempfile import NamedTemporaryFile
 from datetime import datetime, date, timedelta
+from decouple import config
 
 
 
@@ -48,7 +49,7 @@ def download_file(unique_code):
 #collection = db["uploaded_files"]
 
 # Replace with your MongoDB Atlas connection string
-connection_string = "mongodb+srv://filesharedemo:1mf8WgtSUavNuqaz@filedump.9zvaglc.mongodb.net/?retryWrites=true&w=majority"
+connection_string = config('MONGODB_URI')
 # Create a MongoDB client using the connection string
 client = pymongo.MongoClient(connection_string)
 
@@ -57,9 +58,13 @@ db = client["filedump"]  # Replace "your-database-name" with your actual databas
 collection = db["uploaded_files"]
 
 # Mailgun API configuration
-MAILGUN_API_KEY = "00d86d1039473d2dd472ec13d1798715-3750a53b-8060bf03"
-MAILGUN_DOMAIN = "sandboxc833267142b3430d9467639938a14ec4.mailgun.org"
+MAILGUN_API_KEY = config('MAILGUN_API_KEY')
+MAILGUN_DOMAIN = config('MAILGUN_DOMAIN')
 
+# Now you can use these variables in your application
+print(f'MongoDB URI: {connection_string}')
+print(f'Mailgun API Key: {MAILGUN_API_KEY}')
+print(f'Mailgun Domain: {MAILGUN_DOMAIN}')
 
 # Function to send an email
 def send_email(recipient_email, unique_id):
@@ -197,6 +202,7 @@ st.markdown(" 📧 **Email integration for alerting users when a file has been u
 
 
 
+
 # Sidebar menu options
 # Sidebar menu
 menu = st.sidebar.selectbox("Menu", ["Home", "Upload", "MultipleFiles", "Download"])
@@ -295,3 +301,6 @@ if menu == "Download":
             download_file(unique_code)
         else:
             st.error("Invalid code. Please enter a 6-digit numeric code.")
+
+
+st.markdown("<p style='font-size: small; text-align: center;'>Made with ❤️ by khushalsarode</p>", unsafe_allow_html=True)
