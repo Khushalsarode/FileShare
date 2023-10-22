@@ -1,6 +1,6 @@
 # FileDump 🌩
 
-![FileDump](screenshot.png)
+![FileDump](Screenshot 2023-10-22 194933.png)
 
 Share 📤 in a Snap, Download 📥 with a Bump! 🚀
 
