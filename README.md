@@ -1,6 +1,6 @@
 # FileDump 🌩
 
-![FileDump](Screenshot 2023-10-22 194933.png)
+![FileDump]([Screenshot 2023-10-22 194933.png](https://github.com/Khushalsarode/FileShare/blob/master/Screenshot%202023-10-22%20194933.png))
 
 Share 📤 in a Snap, Download 📥 with a Bump! 🚀
 
